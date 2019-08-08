@@ -1,12 +1,12 @@
 from setting import models
-session = models.session()#设置session是为了对这个数据库进行一些非数据库操作
+db = models.session()#设置session是为了对这个数据库进行一些非数据库操作
 # 也可以理解为，将这个数据库增加了功能
 class Base(models.Model):
     __abstract__ = True
     id = models.Column(models.Integer,primary_key = True,autoincrement=True)
     def saved(self):
-        session.add(self)
-        session.commit()
+        db.add(self)
+        db.commit()
 Stu_Cou = models.Table(
     'stu_cou',
     models.Column('id',models.Integer,primary_key=True,autoincrement=True),
@@ -69,7 +69,7 @@ class Attendance(Base):
 """
 # 增--三种方式
 t = Teachers(name='zs' ,age=11, gender=1,cousers_id=1)#单这样保存不上
-session.add(t)#方式一
+db.add(t)#方式一
 
 teacher = Teachers()
 teacher.name = 'ls'
@@ -80,8 +80,8 @@ teacher.cousers_id = 1#方式二
 x1 = {'name':'ww','age':13,'gender':1,'cousers_id':1}
 X= Teachers(**x1)#方式三
 
-session.add_all([teacher,X])
-session.commit()
+db.add_all([teacher,X])
+db.commit()
 """
 # ---------------------------------------------------------
 
@@ -91,8 +91,8 @@ session.commit()
 t = Teachers.query.get(1)
 print(t)#<Teachers 1>
 t.name = '张三'
-session.add(t)
-session.commit()
+db.add(t)
+db.commit()
 """
 # ---------------------------------------------------------
 
@@ -121,12 +121,12 @@ print(v7)
 # 删
 """
 t = Teachers.query.get(2)
-session.delete(t)
-session.commit()
+db.delete(t)
+db.commit()
 """
 # ---------------------------------------------------------
 '''
 c=Course(lable='python',)
-session.add(c)
-session.commit()
+db.add(c)
+db.commit()
 '''

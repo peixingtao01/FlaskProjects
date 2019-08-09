@@ -19,7 +19,7 @@ def student_list():
     students = Student.query.all()
     return render_template('students.html',**locals())
 
-@app.route('/userValid/')
+@app.route('/userValid/',methods=['POST',"GET"])
 def userValid():
     result={'code':'','data':''}
     data = request.args.get('username')

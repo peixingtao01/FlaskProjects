@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    老师表单
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+    {{ teacherfrom.csrf_token }}
+        <div>{{ teacherfrom.name }}<br/></div>
+        <div>{{ teacherfrom.age }}<br/></div>
+        <div>{{ teacherfrom.gender }}<br/></div>
+        <div>{{ teacherfrom.course }}<br/></div>
+        <div><input type="submit" class="btn btn-primary btn-user btn-block" value="添加"></div>
+    </form>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

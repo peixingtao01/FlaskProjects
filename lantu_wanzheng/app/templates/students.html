@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>分数</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in student %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.age }}</td>
+                <td>{{ i.score }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
